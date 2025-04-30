@@ -1,52 +1,66 @@
+/* Layout basics */
 body {
-    margin: 0; 
-    padding-bottom: 3rem; 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-}
-
-#chat-container {
+    margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Full viewport height */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Main layout: messages and sidebar */
+#main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Message area */
+#chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Message list */
 #messages {
-    list-style-type: none; 
-    margin: 0; 
-    padding: 1rem; 
-    overflow-y: auto; /* Enable scrolling for messages */
-    flex-grow: 1; /* Allow message area to grow and fill available space */
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    flex-grow: 1;
     border-bottom: 1px solid #d3d3d3;
 }
 
 #messages > li {
-    padding: 0.5rem 1rem; 
+    padding: 0.5rem 1rem;
 }
 
 #messages > li:nth-child(odd) {
-    background: #efefef; 
+    background: #efefef;
 }
 
+/* Input area pinned at bottom */
 #input-area {
-    padding: 1rem; 
-    display: flex; 
+    padding: 1rem;
+    display: flex;
     background: #f1f1f1;
     box-sizing: border-box;
-    border-top: 1px solid #d3d3d3; /* Separator line */
+    border-top: 1px solid #d3d3d3;
 }
 
 #message-input {
     border: 1px solid #d3d3d3;
     padding: 0.75rem;
-    flex-grow: 1; /* Input takes up available space */
+    flex-grow: 1;
     margin-right: 0.5rem;
     border-radius: 4px;
 }
 
 #send-button {
-    background: #3390ec; 
-    border: none; 
+    background: #3390ec;
+    border: none;
     padding: 0.75rem 1rem;
     color: white;
     border-radius: 4px;
@@ -55,4 +69,87 @@ body {
 
 #send-button:hover {
     background: #1e7bcd;
-} 
+}
+
+/* Sidebar: user list */
+#user-list {
+    width: 200px;
+    border-left: 1px solid #d3d3d3;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#user-list h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#users {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 200px; /* Show a few users initially */
+}
+
+#users li {
+    padding: 4px 0;
+}
+
+/* Toggle button */
+#toggle-users {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+#toggle-users:hover {
+    background-color: #ccc;
+}
+
+/* Welcome Screen Styles */
+#welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+#welcome-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#welcome-screen h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#welcome-screen button {
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3390ec;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#welcome-screen button:hover {
+    background-color: #1e7bcd;
+}
